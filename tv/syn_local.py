@@ -10,7 +10,7 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 repo_root = os.path.dirname(script_path)
 
 def run_command(command, cwd=None):
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, cwd=cwd)
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False, cwd=cwd)
     output, error = process.communicate()
     if process.returncode != 0:
         print(f"错误: {error.decode('utf-8')}")
